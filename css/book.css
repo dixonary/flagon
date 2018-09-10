@@ -76,7 +76,7 @@
     filter: brightness(1.5);
     background-size:cover;
 }
-.book .page:nth-child(odd) {
+.book .page:nth-child(odd) footer {
     text-align:right;
 }
 .book .page:nth-child(even) footer::after{
@@ -90,6 +90,15 @@
     counter-reset:pageNum;
 }
 
+/* Improve general text legibility by adding slight stroke */
+.book p, .book em, .book strong {
+    -webkit-text-stroke: 0.005em;
+}
+.book h2, .book h3, .book h4 {
+    -webkit-text-stroke: 0.01em;
+}
+
+/* Headings */
 .book h1, .book h2, .book h3, .book h4 {
     font-family:"Mr Eaves Small Caps";
     color:var(--red);
@@ -101,7 +110,6 @@
     font-weight:bold;
     margin-bottom:5mm;
     column-span:all;
-    text-align:left;
 }
 .book .title-page {
     position:relative;
@@ -165,11 +173,6 @@
 .book h5 {
     font-weight:bold;
     font-size:1.1em;
-}
-
-.book section {
-    height:1px;
-    flex-grow:1;
 }
 
 .book p+p, .book p+em, .book p+strong {
@@ -270,9 +273,75 @@
     letter-spacing:0.3mm;
 }
 
+
+/* MONSTER STAT BLOCKS */
+.book .stats {
+    border-width:10px;
+    border-style:solid;
+    border-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAA8CAMAAADG+c2+AAAACVBMVEX///8AAADmmihtJc8lAAAAAXRSTlMAQObYZgAAACxJREFUeAHt2EEBACAAwkCwf2hL8NK7AAuwdCw9U5Og4FgeAAAAAK7IBxPjAl3qBs+hfAnLAAAAAElFTkSuQmCC) 10;
+    box-shadow:0mm 1.5mm 3mm #999;
+    background-color:#FDF1DC;
+}
+.book .stats.two-column {
+	column-gap:8mm;
+}
+.book .stats p, .book .stats em, .book .stats strong {
+	font-family:'Scaly Sans';
+    font-size:3.25mm;
+}
+.book .stats table {
+    color:var(--red);
+    font-size:0.9em;
+}
+.book .stats td {
+    padding:0;
+}
+.book .stats tr:nth-child(odd) {
+    background-color:transparent;
+}
+.book .stats h1 {
+	font-size:6.5mm;
+    margin-bottom:0;
+    column-span:initial;
+    letter-spacing:0.3mm;
+}
+.book .stats h3 {
+	font-family:'Scaly Sans';
+    font-variant:small-caps;
+    font-size:1.35em;
+    -webkit-text-stroke: 0.03em;
+    letter-spacing:0.3mm;
+}
+.book .stats p {
+	color:var(--red);
+}
+.book .stats p.noindent {
+	margin-bottom:1em;
+}
+.book .stats p:nth-child(n+10) {
+	color:black;
+}
+.book .stats hr {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0.6mm 0 0.6mm 8.5cm;
+    border-color: transparent transparent transparent #cc0000;
+    box-sizing:border-box;
+    margin:1.5mm 0;
+}
+
 .book .columnbreak {
     break-after:column;
 }
+
+.book .nobreaks {
+    display:inline-block;
+}
+.book .two-column {
+    columns:2;
+}
+
 
 .book table {
     font-family:"Scaly Sans";

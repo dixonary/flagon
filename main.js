@@ -255,9 +255,18 @@ const menuTemplate = [
         submenu: [
             {label:'Generic Table...', click () { win.webContents.send('insertTemplate','table'); } },
             {label:'Dice Roll Table...', click () { win.webContents.send('insertTemplate','rollTable');  } } ,
-            {label:'Class Table...', click () { win.webContents.send('insertTemplate','classTable'); } },
+            {label:'Class Table', click () { win.webContents.send('insertTemplate','classTable'); } },
             {type:'separator'},
-            {label:'Spell', click () { win.webContents.send('insertTemplate','spell');} }
+            {label:'Spell', click () { win.webContents.send('insertTemplate','spell');} },
+            {type:'separator'},
+            {label:'Monster Stat Block', click () { win.webContents.send('insertTemplate','statBlock');} },
+            {label:'Monster Stat Block (large)', click () { win.webContents.send('insertTemplate','statBlockLarge');} }
+        ]
+    },
+    {
+        label:'Snippets',
+        submenu: [
+            {label:'Disable dual page footers', click () { win.webContents.send('insertTemplate','noDualFooters'); } }
         ]
     }
 ]

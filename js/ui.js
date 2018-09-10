@@ -210,17 +210,15 @@ function insertClassTable() {
     rerender();
 }
 
-function insertSpell() {
-    codemirror.replaceSelection(templates.spell);
-    rerender();
-}
-
 ipcRenderer.on('insertTemplate', function(e,arg) {
     switch(arg) {
         case 'table':insertTable(); break;
         case 'rollTable':insertRollTable(); break;
         case 'classTable':insertClassTable(); break;
-        case 'spell':insertSpell(); break;
+        default:
+            codemirror.replaceSelection(templates[arg]);
+            rerender();
+            break;
     }
 });
 

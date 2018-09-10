@@ -4,7 +4,7 @@
   "description": "A cross-platform 5e-style document creator.",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron . --disable-gpu"
   },
   "author": "dixonary",
   "license": "All Rights Reserved",

@@ -77,7 +77,11 @@ function flagonExts () {
             type:'lang',
             regex:/```(.*)([^\`]*)```/g,
             replace:`<div class="$1" markdown="1">$2</div>`
-        },{ // Replace code blocks with divs
+        },{ // Replace tilde-lines with outdented paragraphs
+            type:'lang',
+            regex:/~~(.*)/g,
+            replace:`<p class="noindent" markdown="1">$1</p>`
+        },{ // Replace tilde-lines with outdented paragraphs
             type:'lang',
             regex:/~(.*)/g,
             replace:`<p class="outdent" markdown="1">$1</p>`
