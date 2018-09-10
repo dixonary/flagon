@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Flagon </title>
+        <meta charset="utf-8">
+
+        <script>
+        if (typeof module === 'object') {
+            window.module = module; module = undefined;}
+        </script>
+
+        <script src="js/jquery-331.js"></script>
+        <script src="js/showdown.js"></script>
+
+        <script src="js/codemirror.js"></script>
+        <script src="js/overlay.js"></script>
+        <script src="js/markdown.js"></script>
+        <script src="js/gfm.js"></script>
+
+        <script src="js/templates.js"></script>
+        <script src="js/convert.js"></script>
+        <script src="js/ui.js"></script>
+
+        <script>
+        if (window.module) module = window.module;
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="css/codemirror.css">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/fonts.css">
+        <link rel="stylesheet" type="text/css" href="css/ui.css">
+        <link rel="stylesheet" type="text/css" href="css/book.css">
+    </head>
+
+    <body>
+        <div class="window-container">
+            <textarea class="editor">
+            </textarea>
+            <div class="result-container">
+                <main class="book"></main>
+            </div>
+        </div>
+    </body>
+
+</html>

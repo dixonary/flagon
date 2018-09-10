@@ -1,0 +1,17 @@
+{
+  "name": "flagon-electron",
+  "version": "1.0.0",
+  "description": "A cross-platform 5e-style document creator.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "dixonary",
+  "license": "All Rights Reserved",
+  "devDependencies": {
+    "electron": "^2.0.8"
+  },
+  "dependencies": {
+    "electron-prompt": "^1.2.0"
+  }
+}

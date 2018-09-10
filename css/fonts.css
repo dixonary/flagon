@@ -1,0 +1,112 @@
+@font-face {
+    src:url("fonts/Bookinsanity.otf");
+    font-family: "Bookinsanity";
+}
+@font-face {
+    src:url("fonts/Bookinsanity Bold.otf");
+    font-family: "Bookinsanity";
+    font-weight:bold;
+}
+@font-face {
+    src:url("fonts/Bookinsanity Italic.otf");
+    font-family: "Bookinsanity";
+    font-style:italic;
+}
+@font-face {
+    src:url("fonts/Bookinsanity Bold Italic.otf");
+    font-family: "Bookinsanity";
+    font-weight:bold;
+    font-style:italic;
+}
+@font-face {
+    src:url("fonts/Scaly Sans.otf");
+    font-family: "Scaly Sans";
+}
+@font-face {
+    src:url("fonts/Scaly Sans Bold.otf");
+    font-family: "Scaly Sans";
+    font-weight:bold;
+}
+@font-face {
+    src:url("fonts/Scaly Sans Italic.otf");
+    font-family: "Scaly Sans";
+    font-style:italic;
+}
+@font-face {
+    src:url("fonts/Scaly Sans Bold Italic.otf");
+    font-family: "Scaly Sans";
+    font-weight:bold;
+    font-style:italic;
+}
+@font-face {
+    src:url("fonts/Scaly Sans Caps.otf");
+    font-family: "Scaly Sans Caps";
+}
+@font-face {
+    src:url("fonts/Scaly Sans Caps Bold.otf");
+    font-family: "Scaly Sans Caps";
+    font-weight:bold;
+}
+@font-face {
+    src:url("fonts/Scaly Sans Caps Italic.otf");
+    font-family: "Scaly Sans Caps";
+    font-style:italic;
+}
+@font-face {
+    src:url("fonts/Scaly Sans Caps Bold Italic.otf");
+    font-family: "Scaly Sans Caps";
+    font-weight:bold;
+    font-style:italic;
+}
+@font-face {
+    src:url("fonts/Zatanna Misdirection.otf");
+    font-family: "Zatanna Misdirection";
+}
+@font-face {
+    src:url("fonts/Zatanna Misdirection Bold.otf");
+    font-family: "Zatanna Misdirection";
+    font-weight:bold;
+}
+@font-face {
+    src:url("fonts/Zatanna Misdirection Italic.otf");
+    font-family: "Zatanna Misdirection";
+    font-style:italic;
+}
+@font-face {
+    src:url("fonts/Zatanna Misdirection Bold Italic.otf");
+    font-family: "Zatanna Misdirection";
+    font-weight:bold;
+    font-style:italic;
+}
+@font-face {
+    src:url("fonts/Nodesto Caps Condensed.otf");
+    font-family: "Nodesto Caps Condensed";
+}
+@font-face {
+    src:url("fonts/Nodesto Caps Condensed Bold.otf");
+    font-family: "Nodesto Caps Condensed";
+    font-weight:bold;
+}
+@font-face {
+    src:url("fonts/Nodesto Caps Condensed Italic.otf");
+    font-family: "Nodesto Caps Condensed";
+    font-style:italic;
+}
+@font-face {
+    src:url("fonts/Nodesto Caps Condensed Bold Italic.otf");
+    font-family: "Nodesto Caps Condensed";
+    font-weight:bold;
+    font-style:italic;
+}
+@font-face {
+    src:url("fonts/Mr Eaves Small Caps.otf");
+    font-family: "Mr Eaves Small Caps";
+}
+@font-face {
+    src:url("fonts/Solbera Imitation.otf");
+    font-family: "Solbera Imitation";
+}
+@font-face {
+    src:url("fonts/Inconsolata.ttf");
+    font-family: "Inconsolata";
+}

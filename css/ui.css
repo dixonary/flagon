@@ -1,0 +1,215 @@
+html,body {
+    display:block;
+    width:100%;
+    height:100%;
+    background-color:#E8EAF6;
+    font-family:"Scaly Sans Caps";
+    font-weight:bold;
+    text-rendering:optimizeLegibility;
+}
+
+body {
+    display:flex;
+    flex-direction:column;
+}
+
+menu {
+    display:flex;
+    width:100%;
+    height:40px;
+    background-color:#666F89;
+    z-index: 50;
+    box-shadow: 0 0 10px #000;
+}
+
+.window-container {
+    display:flex;
+    flex-direction:row;
+    height:1px;
+    flex-grow:1;
+}
+
+
+textarea.editor,.CodeMirror {
+    width:40%;
+    height:auto;
+    position:relative;
+    resize:horizontal;
+    border:none;
+    box-sizing:border-box;
+    outline:none;
+    padding:0.5em;
+    overflow-y:scroll;
+    font-size:12pt;
+    font-weight:400;
+    line-height:1.2;
+    font-family:'Inconsolata';
+    background-color:#eee;
+}
+
+main.book {
+    transform-origin:top left;
+    position:relative;
+    top:20px;
+    left:20px;
+}
+
+.result-container {
+    position:relative;
+    flex:1;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    background-color:#666;
+}
+
+::-webkit-scrollbar              {
+    width:12px;
+}
+::-webkit-scrollbar-button       {
+    display:none;
+}
+::-webkit-scrollbar-track        {
+}
+::-webkit-scrollbar-track-piece  {
+    background-color:#ccc;
+}
+::-webkit-scrollbar-thumb        {
+    border-radius:100cm;
+    background-color:#999;
+}
+::-webkit-resizer         {
+    content:"<>";
+    background-color:black;
+    background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAAaElEQVQ4T92TwQoAIAhD8/8/ujJYTCmDvOl1+XBLpQXVZ0GWWbenV0EbCkDUAvyf7LC+8+Kw0PSCaA8HbYJNQ3j06NtZwzRrkh8A78+28wMyk4CazoRtpX4HoBfE31H12zmdgV9zv4wDSRZ0EiG14gwAAAAASUVORK5CYII=");
+    background-size:100% 100%;
+}
+
+menu {
+    box-sizing:border-box;
+    border-bottom:1px solid white;
+}
+
+menu>menu {
+    display:block;
+    box-shadow:none;
+    width:100px;
+    overflow:hidden;
+}
+menu>menu a {
+    border:1px solid white;
+    border-top:none;
+}
+menu>menu a:first-child {
+    border-left:none;
+}
+menu>menu:hover {
+    overflow:initial;
+    height:auto;
+}
+
+menu a {
+    position:relative;
+    display:block;
+    height:40px;
+    width:auto;
+    padding:0 1em;
+    color:white !important;
+    box-sizing:border-box;
+    border-right:1px solid white;
+    border-bottom:1px solid white;
+    background-color:#666F89;
+    text-decoration:none;
+}
+menu a p {
+    position:relative;
+    top:50%;
+    transform:translate(0,-50%);
+    text-align:center;
+}
+
+
+.files {
+    width:160px;
+    display:block;
+    background-color:#3D4252;
+}
+
+.files a {
+    position:relative;
+    display:block;
+    padding:10px 0;
+    box-sizing:border-box;
+    border-bottom:1px solid #CACBD5;
+    text-decoration:none;
+    color:#CACBD5;
+}
+
+.files a.loaded {
+    background-color:#D55E2D;
+    box-shadow:inset 0 0 5px black;
+}
+.files a p {
+    display:block;
+    padding-left:15px;
+    padding-right:5px;
+}
+
+.files a p::after {
+    content: ".flagon";
+}
+
+.cm-s-default .cm-comment {
+    color:var(--hl-color-darker);
+}
+.cm-s-default .cm-header {
+    color:#167d9c;
+}
+.cm-header-2 {
+    filter:hue-rotate(90deg);
+}
+.cm-header-3 {
+    filter:hue-rotate(180deg);
+}
+.cm-header-4 {
+    filter:hue-rotate(270deg);
+}
+
+.cm-pagebreak {
+    background-color:#ccc;
+    border-bottom:1px solid #999;
+    box-sizing:border-box;
+    width:100%;
+    display:block;
+    padding:0;
+    margin:0;
+}
+.cm-columnbreak {
+    background-color:#ddd;
+    border-bottom:1px solid #ccc;
+    box-sizing:border-box;
+    width:100%;
+    display:block;
+    padding:0;
+    margin:0;
+}
+
+@media print {
+    html,body,.window-container {
+        height:auto;
+        display:block;
+    }
+    menu, .editor, .files,.CodeMirror {
+        display:none;
+    }
+    .result-container {
+        overflow-y:auto !important;
+    }
+    main.book {
+        width:100%;
+        overflow-x:hidden;
+        transform:none !important;
+        top:0;
+        left:0;
+        margin-bottom:0 !important;
+    }
+}

@@ -1,0 +1,443 @@
+* {
+    --red: #681a0c;
+    --hl-color:#d2ceda;
+    --hl-color-darker:#855dd5;
+    --dusky:#7d6c57;
+}
+
+.book .page {
+    display:block;
+    flex-direction:column;
+    width:8.27in;
+    height:11.6875in;
+    background-color:white;
+    padding:12mm;
+    box-sizing:border-box;
+    box-shadow:1mm 2mm 3mm #333;
+    margin: 0 0 1cm 0;
+    background-image:url("bg.jpg");
+    position:relative;
+
+    column-count:2;
+    column-gap:8mm;
+    column-fill:auto;
+
+    overflow:hidden;
+	counter-increment: pageNum;
+
+}
+
+.book footer {
+    width:100%;
+	height:15.5mm;
+    position:absolute;
+    left:0;
+    bottom:0mm;
+    padding:1mm 2cm;
+    color:var(--dusky);
+    box-sizing:border-box;
+}
+
+.book footer::before {
+    content:counter(pageNum);
+    padding:0.4cm 0.5cm;
+    box-sizing:border-box;
+    color:var(--dusky);
+    width:100%;
+	height:15.5mm;
+    position:absolute;
+    font-size:1.1em;
+    left:0;
+    bottom:0mm;
+
+    text-align:center;
+
+    padding-left: 200mm;
+    padding-top: 3mm;
+    padding-right: 4mm;
+}
+.book .page:nth-child(even) footer::before {
+    padding-left: 4mm;
+    padding-top: 3mm;
+    padding-right: 200mm;
+}
+
+.book footer::after {
+    content:"";
+    box-sizing:border-box;
+    width:100%;
+	height:15.5mm;
+    position:absolute;
+    left:0;
+    bottom:0mm;
+    background-size:100% auto;
+    background-image:url(data:image/png;base64,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);
+
+    filter: brightness(1.5);
+    background-size:cover;
+}
+.book .page:nth-child(odd) {
+    text-align:right;
+}
+.book .page:nth-child(even) footer::after{
+    transform:scaleX(-1);
+}
+
+.book {
+    box-sizing:border-box;
+    font-weight:normal;
+    font-size:3.6mm;
+    counter-reset:pageNum;
+}
+
+.book h1, .book h2, .book h3, .book h4 {
+    font-family:"Mr Eaves Small Caps";
+    color:var(--red);
+    break-after:avoid-column;
+}
+
+.book h1 {
+    font-size:9mm;
+    font-weight:bold;
+    margin-bottom:5mm;
+    column-span:all;
+    text-align:left;
+}
+.book .title-page {
+    position:relative;
+    top:0; left:0;
+    width:100%;height:100%;
+    column-span:all;
+}
+
+.book .title-page h1 {
+    font-size:0.8in;
+    font-family:"Nodesto Caps Condensed";
+    font-weight:normal;
+    text-align:center;
+    position:absolute;
+    width:100%;
+    left:0;
+    top:2cm;
+}
+.book .title-page h1::after {
+      content: "";
+    width: 0.3cm;
+    height: 0.3cm;
+    position: absolute;
+    display: block;
+    left: calc(50% - 1.5mm);
+    top: 3cm;
+    margin: 0;
+    background-color: red;
+    padding: 0;
+    transform: scaleX(30) rotate(45deg);
+}
+.book .title-page h2 {
+    display:block;
+    width:100%;
+    column-span:all;
+    position:absolute;
+    left:0;
+    bottom:1cm;
+	font-family:'Scaly Sans';
+    font-weight:bold;
+    text-align:center;
+    letter-spacing:0.05em;
+}
+.book h2 {
+    margin-top:4mm;
+    font-size:7.75mm;
+}
+.book h3 {
+    font-size:6mm;
+    border-bottom:0.4mm solid #c9ad6a;
+    margin-top:4mm;
+    margin-bottom:1mm;
+    break-after:avoid-column;
+}
+.book h4 {
+    font-size:5mm;
+    margin-top:2mm;
+    margin-bottom:0mm;
+    break-after:avoid-column;
+}
+.book h5 {
+    font-weight:bold;
+    font-size:1.1em;
+}
+
+.book section {
+    height:1px;
+    flex-grow:1;
+}
+
+.book p+p, .book p+em, .book p+strong {
+    text-indent:3mm;
+}
+
+.book p, .book li, .book em, .book strong {
+    font-family:"Bookinsanity";
+    line-height:1.2;
+}
+.book p.noindent, .book p.section-start {
+    text-indent:0;
+}
+
+.book p.section-start::first-line {
+
+    text-indent:0;
+    font-family:"Mr Eaves Small Caps";
+    line-height:1;
+    font-size:4.5mm;
+}
+.book p.section-start::first-letter {
+    font-size:1.1in;
+    font-family:"Solbera Imitation";
+    position:absolute;
+    float:left;
+    line-height:1em;
+    margin-top:-2.5mm;
+    margin-bottom:-2.5mm;
+}
+
+.book strong {
+    font-weight:bold;
+}
+.book em {
+    font-style:italic;
+}
+
+.book .banner {
+    display:inline-block;
+    width:100%;
+    position:relative;
+    background-color:#ccc;
+    font-size:1em;
+    break-inside:avoid-column;
+    background-color:var(--hl-color);
+    padding:2mm;
+    padding-top:0.5mm;
+
+    margin-top:5mm;
+    margin-bottom:0mm;
+
+    box-shadow:0mm 1.5mm 3mm #999;
+
+    box-sizing:border-box;
+}
+.book .banner p, .book .banner li,
+.book .banner em, .book .banner strong{
+    font-family:"Scaly Sans";
+}
+.book .banner p:first-child {
+    margin-top:1mm;
+}
+
+.book .banner::after {
+    content:'';
+    position:absolute;
+    top:0;;left:0;
+    width: calc(100% - 34px);
+    height: 100%;
+
+    transform:translate(0,-17px);
+
+    border:17px solid transparent;
+    border-image:url("banner-border.png");
+    border-image-slice:17;
+}
+
+.book .banner h2 {
+    font-family:"Scaly Sans Caps";
+    color:black;
+    font-size:1.2em;
+    margin-top:1mm;
+    margin-bottom:1mm;
+    font-weight:bold;
+    break-after:avoid-column;
+}
+
+.book .banner h3 {
+    font-family:"Scaly Sans";
+    color:black;
+    font-size:1em;
+    margin-top:3mm;
+    margin-bottom:0;
+    font-weight:bold;
+    break-after:avoid-column;
+    border-bottom:none;
+    letter-spacing:0.3mm;
+}
+
+.book .columnbreak {
+    break-after:column;
+}
+
+.book table {
+    font-family:"Scaly Sans";
+    display:table;
+    font-size:0.8em;
+    width:100%;
+}
+.book th{
+    font-weight:bold;
+    vertical-align:bottom;
+}
+.book td, .book th {
+    padding:0.8mm 2mm;
+}
+.book tbody tr:nth-child(odd) {
+    background-color:var(--hl-color);
+}
+.book tr {
+     break-inside:avoid-column;
+}
+
+.book .wide {
+    column-span:all;
+}
+
+.book .table-title {
+    font-family:"Scaly Sans Caps";
+    margin-top:2mm;
+    margin-bottom:1mm;
+    font-size:5mm;
+    font-weight:bold;
+    text-indent:0;
+    letter-spacing:0.2mm;
+}
+
+.book ul {
+    list-style:disc outside;
+    margin-top:2mm;
+    padding-left:5mm;
+    font-size:1em;
+}
+
+.book ol {
+    list-style:upper-roman outside;
+    padding-left:5mm;
+    margin-top:2mm;
+    font-size:1em;
+}
+.book li {
+    margin-bottom:1mm;
+    font-size:1em;
+}
+
+.book a {
+    color: blue;
+    text-decoration:none;
+}
+
+.book code {
+    font-family:"Mr Eaves Small Caps";
+    font-size:1.1em;
+}
+
+.book .fancy {
+    column-span:all;
+    background-color:white;
+    letter-spacing:0.08mm;
+    border-style: solid;
+    border-width: 1px;
+    border-image: url(class-table-border.png);
+    border-bottom: 0mm solid white;
+    border-top: 0mm solid white;
+    border-image-slice: 150 200 150 200;
+    border-image-width: 37px;
+    border-image-outset: 3mm 3mm 5mm;
+    font-family:"Scaly Sans";
+    position:relative;
+    margin-bottom:8mm;
+}
+.book .fancy table {
+    font-size:0.9em;
+    position: relative;
+    top: -1mm;
+    margin-bottom: -2mm;
+}
+.book .fancy p {
+    font-family:"Scaly Sans";
+}
+.book .fancy h2 {
+    font-family:"Scaly Sans Caps";
+    margin-top:2mm;
+    margin-bottom:1mm;
+    font-weight:bold;
+    text-indent:0;
+    letter-spacing:0.2mm;
+    color:black;
+    font-size:4.2mm;
+}
+
+.book .fancy .spell-slots {
+    text-align:right;
+    padding-right:2.1cm;
+    font-weight:bold;
+    font-size:0.9em;
+    position:relative;
+    top:1mm;
+}
+.book .fancy .spell-slots::before,
+.book .fancy .spell-slots::after {
+    display:inline-block;
+    content:"";
+    width:3.5mm;
+    background-color:black;
+    height:0.3mm;
+    margin:0.5mm;
+    margin-top:0.2mm;
+    margin-right:0mm;
+    vertical-align:middle;
+}
+
+.book p.outdent,
+.book .outdent p {
+    padding-left: 3mm;
+    text-indent: -3mm;
+}
+
+.book .toc ul {
+    margin-top:0;
+}
+.book .toc li {
+    margin-bottom:0;
+    list-style:none;
+}
+.book .toc li p,
+.book .toc li strong,
+.book .toc li em {
+    display:flex;
+    flex-direction:row;
+}
+.book .toc li span {
+    display:flex;
+    flex-direction:row;
+    flex-grow:1;
+    flex-shrink:1;
+    width:1px;
+    padding-left:1mm;
+}
+.book .toc li span::before {
+    content:"........................."
+            "........................."
+            "........................."
+            "........................."
+            "........................."
+            ".........................";
+    flex-grow:1;
+    overflow:hidden;
+    display:block;
+    margin-right:1mm;
+    box-sizing:border-box;
+}
+
+@media print {
+    .book .page {
+        margin:0;
+        overflow:hidden;
+        box-shadow:none;
+    }
+}
