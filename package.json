@@ -12,6 +12,7 @@
     "electron": "^2.0.8"
   },
   "dependencies": {
+    "btoa": "^1.2.1",
     "electron-prompt": "^1.2.0"
   }
 }

@@ -91,7 +91,7 @@
 }
 
 /* Improve general text legibility by adding slight stroke */
-.book p, .book em, .book strong {
+.book p, .book em {
     -webkit-text-stroke: 0.005em;
 }
 .book h2, .book h3, .book h4 {
@@ -341,6 +341,9 @@
 .book .two-column {
     columns:2;
 }
+.book .no-margin {
+    margin-top:0;
+}
 
 
 .book table {
@@ -508,5 +511,13 @@
         margin:0;
         overflow:hidden;
         box-shadow:none;
+    }
+
+    /* Improve general text legibility by adding slight stroke */
+    .book p, .book em {
+        -webkit-text-stroke: 0;
+    }
+    .book h2, .book h3, .book h4 {
+        -webkit-text-stroke: 0;
     }
 }

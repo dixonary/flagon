@@ -60,6 +60,7 @@ main.book {
     overflow-y:scroll;
     overflow-x:hidden;
     background-color:#666;
+    min-width:200px;
 }
 
 ::-webkit-scrollbar              {

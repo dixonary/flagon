@@ -3,7 +3,7 @@
 // Helper functions
 const NEWPAGE = `<div class="page">`;
 const ENDPAGE = `</div>`;
-const mods    = `((?:(?:noindent|wide|wider|spell-slots|table-title|section-start|front-page) ?)*)`
+const mods    = `((?:(?:noindent|wide|wider|spell-slots|table-title|section-start|no-margin) ?)*)`
 const moddable = `(div|p|table|h1|h2|h3|h4|h5|h6|img|em|strong|li)`
 
 // A list of replacements which repeat until they no longer need doing.
@@ -29,6 +29,7 @@ function convert(data, percentages) {
     data = data.replaceAllGaps([`<li>([^…]*)…([0-9]*)<`], `<li><p>$1<span style="toc-number">$2</span></p><`);
 
     data = data.replaceAll(`src="%`, `src="${percentages}/`);
+    data = data.replaceAll(`href="%`, `src="${percentages}/`);
     data = data.replaceAll(`url\\("%`, `url("${percentages}/`);
 
 
@@ -36,7 +37,7 @@ function convert(data, percentages) {
     var oldData;
     do {
         //console.log("ITER " + counter);
-        console.log(data);
+        //console.log(data);
         counter++;
         oldData = data;
         for(var repl of iter_replacements) {
@@ -44,7 +45,7 @@ function convert(data, percentages) {
         }
     } while(oldData != data && counter < 5);
 
-    console.log(data);
+    //console.log(data);
 
    return data;
 }
@@ -77,13 +78,13 @@ function flagonExts () {
             type:'lang',
             regex:/```(.*)([^\`]*)```/g,
             replace:`<div class="$1" markdown="1">$2</div>`
-        },{ // Replace tilde-lines with outdented paragraphs
-            type:'lang',
-            regex:/~~(.*)/g,
+        },{ // Replace double-tilde-lines with outdented paragraphs
+            type:'output',
+            regex:/~~ (.*)/g,
             replace:`<p class="noindent" markdown="1">$1</p>`
         },{ // Replace tilde-lines with outdented paragraphs
-            type:'lang',
-            regex:/~(.*)/g,
+            type:'output',
+            regex:/~ (.*)/g,
             replace:`<p class="outdent" markdown="1">$1</p>`
         }
     ];

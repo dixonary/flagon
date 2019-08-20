@@ -63,9 +63,9 @@ templates.statBlock = `
 
 ***
 
-**Armor Class** 12
-**Hit Points** 13 (3d8)
-**Speed** 20 ft., fly 50 ft.
+~ **Armor Class** 12
+~ **Hit Points** 13 (3d8)
+~ **Speed** 20 ft., fly 50 ft.
 
 ***
 
@@ -75,10 +75,10 @@ templates.statBlock = `
 
 ***
 
-**Skills** Perception +5
-**Senses** passive Perception 15
-**Languages** Auran
-**Challenge** 1/4 (50 XP)
+~ **Skills** Perception +5
+~ **Senses** passive Perception 15
+~ **Languages** Auran
+~ **Challenge** 1/4 (50 XP)
 
 ***
 ~~ ***Dive Attack.*** If the aarakocra is flying and dives at least 30 feet straight toward a target and then hits it with a melee weapon attack, the attack deals an extra 3 (1d6) damage to the target.
@@ -100,9 +100,9 @@ templates.statBlockLarge = `
 
 ***
 
-**Armor Class** 17 (natural armor)
-**Hit Points** 135 (18d10 + 36)
-**Speed** 10 ft., swim 40 ft.
+~ **Armor Class** 17 (natural armor)
+~ **Hit Points** 135 (18d10 + 36)
+~ **Speed** 10 ft., swim 40 ft.
 
 ***
 
@@ -112,11 +112,11 @@ templates.statBlockLarge = `
 
 ***
 
-**Saving Throws** Con +6, Int +8, Wis +6
-**Skills** History +12, Perception +10
-**Senses** darkvision 120 ft., passive Perception 20
-**Languages** Deep Speech, telepathy 120 ft.
-**Challenge** 10 (5,900 XP)
+~ **Saving Throws** Con +6, Int +8, Wis +6
+~ **Skills** History +12, Perception +10
+~ **Senses** darkvision 120 ft., passive Perception 20
+~ **Languages** Deep Speech, telepathy 120 ft.
+~ **Challenge** 10 (5,900 XP)
 
 ***
 
@@ -130,11 +130,11 @@ templates.statBlockLarge = `
 
 ~~ ***Multiattack.*** The aboleth makes three tentacle attacks.
 
-~~ ***Tentacle.*** *Melee weapon attack:* +9 to hit, reach 10 ft., one target. *Hit:* 12 (2d6 + 5) bludgeoning damage. If the target is a creature, it must succeed on a DC 14 Constitution saving throw or
+~~ ***Tentacle.*** *Melee weapon attack:* +9 to hit, reach 10 ft., one target. *Hit:* 12 (2d6 + 5) bludgeoning damage. If the target is a creature, it must succeed on a DC 14 Constitution saving throw
 
 <columnbreak>
 
-become diseased. The disease has no effect for 1 minute and can be removed by any magic that cures desease. After 1 minute, the diseased creature's skin becomes translucent and slimy, the creature can't regain hit points unless it is underwater, and the disease can be removed only by *heal* or another disease-curing spell of 6th level or higher. When the creature is outlside a body of water, it takes 6 (1d12) acid damage every 10 minutes unless moisture is applied to the skin before 10 minutes have passed.
+or become diseased. The disease has no effect for 1 minute and can be removed by any magic that cures desease. After 1 minute, the diseased creature's skin becomes translucent and slimy, the creature can't regain hit points unless it is underwater, and the disease can be removed only by *heal* or another disease-curing spell of 6th level or higher. When the creature is outlside a body of water, it takes 6 (1d12) acid damage every 10 minutes unless moisture is applied to the skin before 10 minutes have passed.
 
 ~~ ***Tail.*** *Melee Weapon Attack:* +9 to hit, reach 10 ft, one target. *Hit*: 16 (3d6 + 5) bludgeoning damage.
 

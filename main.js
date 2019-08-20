@@ -2,15 +2,18 @@ const {app, BrowserWindow, Menu, ipcMain, dialog, shell} = require('electron')
 const fs = require('fs');
 const path = require('path');
 const prompt = require('electron-prompt');
+const {fullHTML} = require('./exportHTML.js');
+
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
+let exporting;
 var activeDir
 
 function createWindow () {
     // Create the browser window.
-    win = new BrowserWindow({width: 800, height: 600})
+    win = new BrowserWindow({width: 1280, height: 720})
 
     // and load the index.html of the app.
     win.loadFile('index.html');
@@ -25,11 +28,11 @@ function createWindow () {
         loadDir(win, data);
     });
 
-    win.toggleDevTools();
+    // win.toggleDevTools();
     win.maximize();
 
 
-    // Context menus?
+    // Context menus
     const selectionMenu = Menu.buildFromTemplate([
        {role: 'copy'},
        {type: 'separator'},
@@ -111,7 +114,7 @@ function loadDir(win, dirname) {
     win.webContents.send("activeDir", activeDir);
     win.webContents.send("loadData", flagonData);
 
-    win.setTitle(`${activeDir} - Flagon`);
+    win.setTitle(`${activeDir} - Flagon &&&`);
 }
 
 function exportPDF(win) {
@@ -165,8 +168,7 @@ ipcMain.on("responseHTML", function(e, data) {
                 console.log("HTML export: No file name - giving up");
                 return;
             }
-            fs.writeFileSync(fn, data);
-            shell.openItem(fn);
+            exportHTMLToFile(data, fn);
         });
     }
     catch (err) {
@@ -174,6 +176,37 @@ ipcMain.on("responseHTML", function(e, data) {
         console.log(err);
     }
 });
+
+function exportHTMLToFile(data, filename) {
+    // Hook to wait for the export window to be ready for data.
+    ipcMain.on("exportReady", function() {
+        console.log("Export: Page ready; Sending Data");
+        dummyWindow.webContents.send("embedData", data);
+    });
+
+    // Get the total page back from the browser.
+    ipcMain.on("totalPage", function(e, totalData) {
+        dummyWindow.webContents.send("fullData", fullHTML(totalData));
+    });
+
+    // Hook to wait for the export window to have loaded the data.
+    ipcMain.on("outputReady", function() {
+        console.log("Export: Output Ready");
+        dummyWindow.webContents.savePage(filename, "HTMLComplete", function(_) {
+            console.log("Export: Saved successfully");
+            shell.openItem(filename);
+        });
+    });
+
+    // 1. Create a dummy browser window.
+    dummyWindow = new BrowserWindow({show:false});
+
+    console.log("Export: Loading template");
+    // 2. Load template file into dummy window.
+    dummyWindow.loadFile("export-template.html");
+
+}
+
 
 function newFlagon(win) {
     dialog.showOpenDialog(win,
@@ -237,7 +270,7 @@ const menuTemplate = [
             {label:'Open Flagon...', accelerator:'CmdorCtrl+O', click () { open(win); } },
             {label:'Export', submenu:[
                 {label:"to PDF...", accelerator:'CmdorCtrl+P', click () { exportPDF(win); } },
-                // TODO {label:"to HTML...", accelerator:'CmdorCtrl+E', click () { exportHTML(win); } },
+                {label:"to HTML...", accelerator:'CmdorCtrl+E', click () { exportHTML(win); } },
             ]},
             {label:'Close Window', role:'close'},
             {label:'Quit', role:'quit'}

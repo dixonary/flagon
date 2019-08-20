@@ -73,24 +73,27 @@ function rerender() {
 // Set hook for resizing the right pane!
 $(function(){
     $(window).mousemove(scale);
-    $( window ).resize(scale);
+    $( window ).resize(resizeRightPane);
 
 
-    setTimeout(function() {
-        rerender();
-
-        // Resize right pane so it shows front page only
-        let ph = $(".page").outerHeight();
-        let pw = $(".page").outerWidth();
-        let rh = parseInt($(".result-container").height())+45;
-        let aw = $(window).width();
-        $(".CodeMirror").width(aw-(rh/ph*pw));
-
-        scale();
-    },30);
+    setTimeout(resizeRightPane,30);
 
 });
 
+function resizeRightPane() {
+    rerender();
+
+    // Resize right pane so it shows front page only
+    let ph = $(".page").outerHeight();
+    let pw = $(".page").outerWidth();
+    let rh = parseInt($(".result-container").height())+45;
+    let aw = $(window).width();
+    $(".CodeMirror").width(aw-(rh/ph*pw));
+
+    scale();
+}
+
+// Zoom in the right pane.
 function scale() {
 
     let pw = $(".page").outerWidth();
@@ -234,10 +237,13 @@ ipcRenderer.on('loadData', function(e,data) {
     rerender();
 });
 
-// TODO
+
 ipcRenderer.on("requestHTML", function(e,arg) {
+
     console.log("HTML export requested");
     var data = codemirror.getValue();
-    data = convert(data, "");
-    ipcRenderer.send("responseHTML", data);
+    data = convert(data, activeDir);
+
+    ipcRenderer.send('responseHTML', data);
+
 });
