@@ -9,7 +9,7 @@
   "author": "dixonary",
   "license": "All Rights Reserved",
   "devDependencies": {
-    "electron": "^2.0.8"
+    "electron": "^9.4.0"
   },
   "dependencies": {
     "btoa": "^1.2.1",
